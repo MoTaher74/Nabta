@@ -4,17 +4,18 @@ import { useAppContext } from "../context/AppContext";
 
 const Categories = () => {
     const {navigate} = useAppContext();
-const renderCategories = categories.map((cat, idx) => (
+const renderCategories = categories.map((category, idx) => (
 
     <div className="group flex flex-col items-center justify-center py-5 px-3 gap-2 rounded-lg cursor-pointer " 
-    key={idx} style={{background: cat.bgColor}}
+    key={idx} style={{background: category.bgColor}}
     onClick={()=>{
-        navigate(`/product/${cat.path}`);
+        navigate(`/product/${category.path}`);
+
         scrollTo(0,0);
     }}
     >
-    <img src={cat.image} alt="" className="group-hover:scale-110 transition max-w-28"/>
-    <p className="text-sm font-medium">{cat.text}</p>
+    <img src={category.image} alt="" className="group-hover:scale-110 transition max-w-28"/>
+    <p className="text-sm font-medium">{category.text}</p>
 </div>
 ));
 

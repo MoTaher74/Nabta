@@ -38,6 +38,7 @@ import potato_image_2 from "./potato_image_2.png";
 import potato_image_3 from "./potato_image_3.png";
 import potato_image_4 from "./potato_image_4.png";
 import tomato_image from "./tomato_image.png";
+import tomato_image_2 from "./tomato_image_2.png";
 import carrot_image from "./carrot_image.png";
 import apple_image from "./apple_image.png";
 import amul_milk_image from "./amul_milk_image.png";
@@ -105,43 +106,43 @@ export const assets = {
 export const categories = [
   {
     text: "Organic veggies",
-    path: "Vegetables",
+    path: "vegetables",
     image: organic_vegitable_image,
     bgColor: "#FEF6DA",
   },
   {
     text: "Fresh Fruits",
-    path: "Fruits",
+    path: "fruits",
     image: fresh_fruits_image,
     bgColor: "#FEE0E0",
   },
   {
     text: "Cold Drinks",
-    path: "Drinks",
+    path: "drinks",
     image: bottles_image,
     bgColor: "#F0F5DE",
   },
   {
     text: "Instant Food",
-    path: "Instant",
+    path: "instant",
     image: maggi_image,
     bgColor: "#E1F5EC",
   },
   {
     text: "Dairy Products",
-    path: "Dairy",
+    path: "dairy",
     image: dairy_product_image,
     bgColor: "#FEE6CD",
   },
   {
     text: "Bakery & Breads",
-    path: "Bakery",
+    path: "bakery",
     image: bakery_image,
     bgColor: "#E0F6FE",
   },
   {
     text: "Grains & Cereals",
-    path: "Grains",
+    path: "grains",
     image: grain_image,
     bgColor: "#F1E3F9",
   },
@@ -226,7 +227,7 @@ export const dummyProducts = [
     category: "Vegetables",
     price: 40,
     offerPrice: 35,
-    image: [tomato_image],
+    image: [tomato_image, tomato_image_2, tomato_image, tomato_image],
     description: [
       "Juicy and ripe",
       "Rich in Vitamin C",

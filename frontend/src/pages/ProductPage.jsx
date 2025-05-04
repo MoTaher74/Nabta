@@ -26,7 +26,7 @@ const ProductPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-7 gap-3 md:gap-6 ">
                 {filterProducts}
             </div>
-                        <div className="w-full h-0.5 bg-black rounded-full mt-30"></div>
+            <div className="w-full h-0.5 bg-black rounded-full mt-30"></div>
         </div>
     )
 }
