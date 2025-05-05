@@ -61,11 +61,39 @@ const removeFromCart = (itemId)=>{
     setCartItems(cartData);
 }
 
+// get cart items count 
+
+const getCartItemsCount = () => {
+    let count = 0;
+    let cartData = structuredClone(cartItems);
+    for(let id in cartData){
+        count += cartData[id];
+    }
+    return count;
+}
+
+// get cart total amount
+
+const getCartTotalAmount = () => {
+    let totalAmount = 0;
+    let cartData = structuredClone(cartItems);
+    for(let id in cartData){
+        let item = products.find((product) => product._id === id);
+
+        if(cartData[id] >0){
+            totalAmount += item.offerPrice * cartData[id];
+        }
+
+    }
+    return Math.floor(totalAmount * 100) /100;
+}
+
+
     useEffect(()=>{
         fetchProducts();
     },[])
 
-    const value = {searchQuery,setSearchQuery,navigate,user,setSeller,setUser,seller,showUserLogin,setShowUserLogin,products,currency,addToCart,updateCartItem,removeFromCart,cartItems};
+    const value = {searchQuery,setSearchQuery,navigate,user,setSeller,setUser,seller,showUserLogin,setShowUserLogin,products,currency,addToCart,updateCartItem,removeFromCart,cartItems,getCartItemsCount,getCartTotalAmount};
 
     return <AppContext.Provider value={value}>
         {children}
