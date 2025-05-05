@@ -7,7 +7,7 @@ const Cart = () => {
     const {products,cartItems,removeFromCart,getCartItemsCount,navigate,getCartTotalAmount,updateCartItem} = useAppContext();
 
     const [cartArray,setCartArray] = useState([]);
-    const [address,setAddress] = useState(dummyAddress);
+    const [address,_setAddress] = useState(dummyAddress);
     const [showAddress, setShowAddress] = useState(false)
     const[selectedAddress,setSelectedAddress] = useState(dummyAddress[0]);
 
@@ -26,6 +26,7 @@ const Cart = () => {
 
 
     };
+ 
 
     useEffect(()=>{
     if(products.length > 0 && cartItems){

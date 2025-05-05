@@ -15,7 +15,14 @@ export const AppContextProvider = ({children})=>{
     const [seller,setSeller] = useState(false);
     const [showUserLogin,setShowUserLogin] = useState(false);
     const [products,setProducts] = useState([]);
-    const [cartItems,setCartItems] = useState({});
+    const [cartItems, setCartItems] = useState(() => {
+        const saved = localStorage.getItem("cartItems");
+        return saved ? JSON.parse(saved) : {};
+    });
+
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
     const [searchQuery,setSearchQuery] = useState({});
 // fetch All products
     const fetchProducts = async ()=>{
@@ -93,7 +100,7 @@ const getCartTotalAmount = () => {
         fetchProducts();
     },[])
 
-    const value = {searchQuery,setSearchQuery,navigate,user,setSeller,setUser,seller,showUserLogin,setShowUserLogin,products,currency,addToCart,updateCartItem,removeFromCart,cartItems,getCartItemsCount,getCartTotalAmount};
+    const value = {searchQuery,setSearchQuery,navigate,user,setSeller,setUser,seller,showUserLogin,setShowUserLogin,products,currency,addToCart,updateCartItem,removeFromCart,cartItems,setCartItems,getCartItemsCount,getCartTotalAmount};
 
     return <AppContext.Provider value={value}>
         {children}
