@@ -9,6 +9,7 @@ import ProductPage from "./pages/ProductPage";
 import ProductCategory from "./pages/ProductCategory";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import Contact from "./pages/Contact";
 
 const App = ()=>{
 const isSellerPath = useLocation().pathname.includes('seller');
@@ -32,6 +33,7 @@ const {showUserLogin} = useAppContext();
   <Routes>
 <Route path="/" element={<Home/>}/>
 <Route path="/product" element={<ProductPage/>}/>
+<Route path="/contact" element={<Contact/>}/>
 <Route path="/product/:category" element={<ProductCategory/>}/>
 <Route path="/product/:category/:id" element={<ProductDetails/>}/>
 <Route path="/cart" element={<Cart/>}/>
