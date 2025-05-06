@@ -1,12 +1,49 @@
-# React + Vite
+# 🌿 Nabta – Food E-commerce Frontend App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Nabta** is a responsive and fast frontend application for an online food and grocery store. Built with modern tools like **React 19**, **Vite**, and **Tailwind CSS**, the project delivers smooth navigation, modular structure, and a clean user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+👉 [nabta-ecommerce.vercel.app](https://nabta-ecommerce.vercel.app)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Tech Stack
+
+- **React 19**
+- **Vite 6**
+- **Tailwind CSS 4**
+- **React Router DOM v7**
+- **React Hot Toast**
+- **Context API**
+- **ESLint** for code quality
+
+---
+
+## 🚀 Features
+
+- 🏠 Home page with categories & highlights  
+- 🛍 Browse products by type or category  
+- 🔍 Product details page with dynamic routing  
+- 🛒 Add to cart functionality  
+- 📞 Contact page  
+- 🔐 Login modal using Context  
+- 📦 Built with Vite for lightning-fast development and builds  
+- 🧪 Toast notifications with react-hot-toast  
+- 🧩 Fully responsive with Tailwind CSS  
+
+---
+
+## 📦 Setup & Development
+
+```bash
+git clone https://github.com/your-username/nabta-ecommerce.git
+cd nabta-ecommerce/frontend
+npm install
+npm run dev
+
+
+
+
