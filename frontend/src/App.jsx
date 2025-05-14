@@ -1,16 +1,19 @@
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
 import { useAppContext } from "./context/AppContext";
 import Login from "./components/Login";
-import ProductPage from "./pages/ProductPage";
-import ProductCategory from "./pages/ProductCategory";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
-import Contact from "./pages/Contact";
+import React from "react";
+import { Suspense } from "react";
 
+const ProductPage = React.lazy(() => import("./pages/ProductPage"));
+const ProductCategory = React.lazy(() => import("./pages/ProductCategory"));
+const ProductDetails = React.lazy(() => import("./pages/ProductDetails"));
+const Cart = React.lazy(() => import("./pages/Cart"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Home = React.lazy(() => import("./pages/Home"));
 const App = ()=>{
 const isSellerPath = useLocation().pathname.includes('seller');
 const {showUserLogin} = useAppContext();
@@ -30,6 +33,9 @@ const {showUserLogin} = useAppContext();
 
 
 <div className={`${isSellerPath ?"":"px-6 md:px-16 lg:px-24 xl:px-32"}`}>
+
+  
+<Suspense fallback={<div className="min-h-[500px]">Loading...</div>}>
   <Routes>
 <Route path="/" element={<Home/>}/>
 <Route path="/product" element={<ProductPage/>}/>
@@ -38,6 +44,7 @@ const {showUserLogin} = useAppContext();
 <Route path="/product/:category/:id" element={<ProductDetails/>}/>
 <Route path="/cart" element={<Cart/>}/>
   </Routes>
+  </Suspense>
 </div>
 <Footer/>
     </>

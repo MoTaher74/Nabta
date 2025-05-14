@@ -1,6 +1,7 @@
 
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
+import { memo } from "react";
 const ProductCard = ({product}) => {
     const {currency,addToCart,removeFromCart,navigate,cartItems} = useAppContext();
 
@@ -49,4 +50,4 @@ const ProductCard = ({product}) => {
     );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

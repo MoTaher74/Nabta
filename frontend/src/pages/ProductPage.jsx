@@ -1,6 +1,7 @@
 import ProductCard from "../components/ProductCard";
+import Paginator from "../components/ui/Paginator";
 import { useAppContext } from "../context/AppContext";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 
 const ProductPage = () => {
@@ -14,11 +15,26 @@ const ProductPage = () => {
         }
 
     },[products,searchQuery])
+    const [page,setPage]=useState(1);
+    const productsPerPage = 10;
+    const totalPge = Math.ceil(filtered.length / productsPerPage);
+    console.log(totalPge)
 
-    // function used for show and filtered products
-    const filterProducts = filtered.filter((product)=>product.inStock).map((producted,idx)=>(<ProductCard key={idx} product={producted} />));
+    const onClickPrev =()=>{
+        setPage(prev => prev - 1);
+    }
+    const onClickNext =()=>{
+        setPage(prev => prev + 1);
+    }
+    // function used for show and filtered products& Paginations
+    const filterProducts = useMemo(()=>{
+        return filtered.filter((product)=>product.inStock)
+    .slice((page - 1) *productsPerPage, page * productsPerPage)
+    .map((producted,idx)=>(<ProductCard key={idx} product={producted} />));
+    },[filtered,page,productsPerPage])
+    console.log(filterProducts);
     return (
-        <div className="mt-16 flex flex-col ">
+        <div className="mt-5 flex flex-col ">
             <div className="flex flex-col items-end w-max">
                 <h1 className="text-xl md:text-2xl font-medium uppercase">All Products</h1>
                 <div className="w-25 h-0.5 md:h-1 bg-primary rounded-full"></div>
@@ -26,6 +42,10 @@ const ProductPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-7 gap-3 md:gap-6 ">
                 {filterProducts}
             </div>
+
+           <div className="mt-5">
+             <Paginator page={page} pageCount={totalPge} onClickPrev={() => onClickPrev()} total={filtered.length} onClickNext={() => onClickNext()} />
+           </div>
             <div className="w-full h-0.5 bg-black rounded-full mt-30"></div>
         </div>
     )
